@@ -1,105 +1,123 @@
-// Mobile Menu
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-mobileMenuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// Cookie Consent
-const cookieConsent = document.getElementById('cookieConsent');
-const acceptCookies = document.getElementById('acceptCookies');
-const declineCookies = document.getElementById('declineCookies');
-
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = `expires=${date.toUTCString()}`;
-    document.cookie = `${name}=${value};${expires};path=/`;
-}
-
-function getCookie(name) {
-    const cookieName = `${name}=`;
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-        cookie = cookie.trim();
-        if (cookie.startsWith(cookieName)) {
-            return cookie.substring(cookieName.length);
-        }
+// Mobile Menu Toggle
+document.addEventListener("DOMContentLoaded", () => {
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn")
+    const navLinks = document.getElementById("navLinks")
+  
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active")
+        document.body.classList.toggle("menu-open")
+      })
+  
+      // Close menu when clicking on a link
+      const links = navLinks.querySelectorAll("a")
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active")
+          document.body.classList.remove("menu-open")
+        })
+      })
     }
-    return null;
-}
-
-if (!getCookie('cookieConsent')) {
-    cookieConsent.style.display = 'block';
-}
-
-acceptCookies.addEventListener('click', () => {
-    setCookie('cookieConsent', 'accepted', 365);
-    cookieConsent.style.display = 'none';
-});
-
-declineCookies.addEventListener('click', () => {
-    setCookie('cookieConsent', 'declined', 365);
-    cookieConsent.style.display = 'none';
-});
-
-// Modals
-const modalTriggers = document.querySelectorAll('.modal-trigger');
-const modals = document.querySelectorAll('.modal');
-const closeButtons = document.querySelectorAll('.close-modal');
-
-modalTriggers.forEach(trigger => {
-    trigger.addEventListener('click', () => {
-        const modalId = trigger.dataset.modal;
-        const modal = document.getElementById(`${modalId}Modal`);
-        modal.classList.add('active');
-    });
-});
-
-closeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        modal.classList.remove('active');
-    });
-});
-
-window.addEventListener('click', (e) => {
-    modals.forEach(modal => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
+  
+    // Modal functionality
+    const modalTriggers = document.querySelectorAll(".modal-trigger")
+    const closeModalButtons = document.querySelectorAll(".close-modal")
+  
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", function () {
+        const modalId = this.getAttribute("data-modal")
+        const modal = document.getElementById(modalId + "Modal")
+        if (modal) {
+          modal.classList.add("active")
+          document.body.style.overflow = "hidden"
         }
-    });
-});
-
-// Contact Form
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    alert('Message sent successfully!');
-    contactForm.reset();
-});
-
-// Update current year in footer
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-// Update dates in modals
-document.querySelectorAll('.current-date').forEach(element => {
-    element.textContent = new Date().toLocaleDateString();
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+      })
+    })
+  
+    closeModalButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const modal = this.closest(".modal")
+        if (modal) {
+          modal.classList.remove("active")
+          document.body.style.overflow = ""
         }
-    });
-});
+      })
+    })
+  
+    // Close modal when clicking outside
+    const modals = document.querySelectorAll(".modal")
+    modals.forEach((modal) => {
+      modal.addEventListener("click", function (e) {
+        if (e.target === this) {
+          this.classList.remove("active")
+          document.body.style.overflow = ""
+        }
+      })
+    })
+  
+    // Cookie consent
+    const cookieConsent = document.getElementById("cookieConsent")
+    const acceptCookies = document.getElementById("acceptCookies")
+    const declineCookies = document.getElementById("declineCookies")
+  
+    if (cookieConsent && acceptCookies && declineCookies) {
+      if (!localStorage.getItem("cookieConsent")) {
+        setTimeout(() => {
+          cookieConsent.style.display = "block"
+        }, 2000)
+      } else {
+        cookieConsent.style.display = "none"
+      }
+  
+      acceptCookies.addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "accepted")
+        cookieConsent.style.display = "none"
+      })
+  
+      declineCookies.addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "declined")
+        cookieConsent.style.display = "none"
+      })
+    }
+  
+    // Set current year in footer
+    const currentYearElement = document.getElementById("currentYear")
+    if (currentYearElement) {
+      currentYearElement.textContent = new Date().getFullYear()
+    }
+  
+    // Set current date in modals
+    const currentDateElements = document.querySelectorAll(".current-date")
+    if (currentDateElements.length > 0) {
+      const options = { year: "numeric", month: "long", day: "numeric" }
+      const formattedDate = new Date().toLocaleDateString("en-US", options)
+  
+      currentDateElements.forEach((element) => {
+        element.textContent = formattedDate
+      })
+    }
+  
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault()
+  
+        const targetId = this.getAttribute("href")
+        if (targetId === "#") return
+  
+        const targetElement = document.querySelector(targetId)
+        if (targetElement) {
+          const headerOffset = 70
+          const elementPosition = targetElement.getBoundingClientRect().top
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+  
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          })
+        }
+      })
+    })
+  })
+  
+  

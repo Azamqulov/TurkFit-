@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gates of Olympus Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white">
+    
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Gates of Olympus</h1>
+        <button id="menu-btn" class="md:hidden px-3 py-2 bg-gray-700 rounded">☰</button>
+        <ul id="menu" class="hidden md:flex space-x-6">
+            <li><a href="#" class="hover:text-yellow-400">Home</a></li>
+            <li><a href="#about" class="hover:text-yellow-400">About</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Gallery</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('hero.jpg');">
+        <div class="bg-black bg-opacity-50 p-6 rounded">
+            <h2 class="text-4xl font-extrabold">Welcome to Gates of Olympus</h2>
+            <p class="mt-4 text-lg">Discover the mystic world beyond the gates.</p>
+            <button class="mt-6 px-6 py-2 bg-yellow-500 rounded hover:bg-yellow-600">Explore</button>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section id="about" class="p-10">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div class="md:col-span-2">
+                <h2 class="text-3xl font-bold mb-4">About Gates of Olympus</h2>
+                <p class="mb-4">Gates of Olympus is a sacred space where individuals embark on a journey of self-discovery, wellness, and inner peace. We provide expert-led yoga sessions, meditation techniques, and holistic practices that cater to individuals of all skill levels.</p>
+                <p class="mb-4">Our mission is to create a transformative experience that nurtures both the body and the mind. With personalized class structures, we ensure that every participant receives guidance tailored to their unique needs. Whether you seek relaxation, flexibility, strength, or mental clarity, our programs are designed to support your journey.</p>
+                <p class="mb-4">At Gates of Olympus, we believe in the power of consistency and community. Our students find motivation and support through carefully structured classes, progress tracking, and continued mentorship. The experience goes beyond a simple yoga class—it’s a lifestyle of balance and growth.</p>
+            </div>
+            <div class="flex justify-center">
+                <img src="instructor.jpg" alt="Gates of Olympus" class="w-48 h-48 object-cover rounded-full border-4 border-gray-300">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="p-10 text-center">
+        <h2 class="text-3xl font-bold">Our Timeline</h2>
+        <div class="relative mt-10 flex flex-col items-center">
+            <div class="border-l-4 border-gray-400 absolute left-1/2 transform -translate-x-1/2 h-full"></div>
+            
+            <div class="relative bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg mb-10 w-1/2 self-start">
+                <h3 class="text-xl font-bold">Initial Consultation</h3>
+                <p class="mt-2">Understanding student goals and needs.</p>
+            </div>
+            
+            <div class="relative bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg mb-10 w-1/2 self-end">
+                <h3 class="text-xl font-bold">Personalized Class Design</h3>
+                <p class="mt-2">Tailoring classes to individual preferences.</p>
+            </div>
+            
+            <div class="relative bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg mb-10 w-1/2 self-start">
+                <h3 class="text-xl font-bold">Guided Yoga Sessions</h3>
+                <p class="mt-2">Practicing with expert guidance.</p>
+            </div>
+            
+            <div class="relative bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg mb-10 w-1/2 self-end">
+                <h3 class="text-xl font-bold">Progress Monitoring</h3>
+                <p class="mt-2">Tracking improvements and feedback.</p>
+            </div>
+            
+            <div class="relative bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-1/2 self-start">
+                <h3 class="text-xl font-bold">Ongoing Support</h3>
+                <p class="mt-2">Ensuring continued growth and development.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-4 text-center mt-10">
+        <p>&copy; 2025 Gates of Olympus. All rights reserved.</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

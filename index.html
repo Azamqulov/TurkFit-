@@ -7,58 +7,67 @@
     <title>TurkFit Elite - Premium Fitness in Istanbul</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="shortcut icon" href="images/heart-rate.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/heart-rate.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
+            <div class="nav-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="logo-icon">
+                    <path d="M6.5 6.5h11"></path>
+                    <path d="M6.5 17.5h11"></path>
+                    <path d="M3 10h18"></path>
+                    <path d="M3 14h18"></path>
+                </svg>
+                <span>TurkFit Elite</span>
+            </div>
 
-            <button class="mobile-menu-btn">
-                <span class="menu-icon"></span>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="menu-icon">☰</span>
             </button>
-            <div class="nav-links">
+
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#classes">Classes</a>
-
-                <div class="nav-logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="logo-icon">
-                        <path d="M6.5 6.5h11"></path>
-                        <path d="M6.5 17.5h11"></path>
-                        <path d="M3 10h18"></path>
-                        <path d="M3 14h18"></path>
-                    </svg>
-                    <span>TurkFit Elite</span>
-                </div>
-                <!-- <a href="#trainers">Trainers</a> -->
                 <a href="#Timeline">Timeline</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-     <!-- Meet Kiri James Section -->
-     <section class="p-10 Meet mt-16" id="home">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
-            <div class="md:col-span-3">
-                <h2 class="text-3xl font-bold mb-4">Meet Kiri James</h2>
-                <p class="mb-4">Kiri James is an exceptional yoga instructor, known for her dedication to providing high-quality yoga instruction to students of all levels...</p>
-                <p>Her passion for yoga is evident in the way she conducts her classes...</p>
-                <p class="text-base/8 text-base">Our mission is to create a transformative experience that nurtures both the body and the mind. With personalized class structures, we ensure that every participant receives guidance tailored to their unique needs. Whether you seek relaxation, flexibility, strength, or mental clarity, our programs are designed to support your journey.
+    <!-- Meet Kiri James Section -->
+    <section class="meet-section" id="home">
+        <div class="meet-container">
+            <div class="meet-text" data-aos="fade-right">
+                <h2 class="meet-title">Meet Kiri James</h2>
+                <p class="meet-paragraph">Kiri James is an exceptional yoga instructor, known for her dedication to
+                    providing high-quality yoga instruction to students of all levels...</p>
+                <p class="meet-paragraph">Her passion for yoga is evident in the way she conducts her classes...</p>
+                <p class="meet-description">Our mission is to create a transformative experience that nurtures both the
+                    body and the mind. With personalized class structures, we ensure that every participant receives
+                    guidance tailored to their unique needs. Whether you seek relaxation, flexibility, strength, or
+                    mental clarity, our programs are designed to support your journey.
 
-                    At Gates of Olympus, we believe in the power of consistency and community. Our students find motivation and support through carefully structured classes, progress tracking, and continued mentorship. The experience goes beyond a simple yoga class—it’s a lifestyle of balance and growth.</p>
+                    At Gates of Olympus, we believe in the power of consistency and community. Our students find
+                    motivation and support through carefully structured classes, progress tracking, and continued
+                    mentorship. The experience goes beyond a simple yoga class—it's a lifestyle of balance and growth.
+                </p>
             </div>
-            <div class="flex justify-center images_header md:col-span-2" >
-                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Zml0bmVzc3xlbnwwfHwwfHx8MA%3D%3D" alt="Kiri James" class="  rounded-full border-4 border-gray-300">
+            <div class="meet-image" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Zml0bmVzc3xlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Kiri James" class="profile-image">
             </div>
         </div>
     </section>
+
     <!-- Hero Section -->
     <section id="classes" class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up">
             <h1>Transform Your Life at TurkFit Elite</h1>
             <p>Experience premium fitness facilities and expert training in Istanbul</p>
             <button class="cta-button">Start Your Journey</button>
@@ -69,7 +78,7 @@
     <section class="features">
         <div class="container">
             <div class="feature-grid">
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-right">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6.5 6.5h11"></path>
@@ -80,7 +89,7 @@
                     <h3>State-of-the-art Equipment</h3>
                     <p>Latest fitness technology and premium equipment for optimal results</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -89,7 +98,7 @@
                     <h3>24/7 Access</h3>
                     <p>Train on your schedule with round-the-clock facility access</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-left">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -103,38 +112,40 @@
             </div>
         </div>
     </section>
+
     <!-- Timeline Section -->
-    <section class="p-10 text-center" id="Timeline">
-        <h2 class="text-3xl font-bold">Our Timeline</h2>
-        <div class="relative mt-10 flex flex-col items-center">
-            <div class="border-l-4 border-gray-400 absolute left-1/2 transform -translate-x-1/2 h-full"></div>
+    <section class="timeline-section" id="Timeline">
+        <h2 class="timeline-title">Our Timeline</h2>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
 
-            <div class="relative bg-gray-100 p-6 rounded-lg shadow-lg max-w-lg mb-10 w-1/2 self-start">
-                <h3 class="text-xl font-bold">Initial Consultation</h3>
-                <p class="mt-2">Understanding student goals and needs.</p>
+            <div class="timeline-item timeline-left" data-aos="fade-up-right">
+                <h3 class="timeline-item-title">Initial Consultation</h3>
+                <p class="timeline-item-desc">Understanding student goals and needs.</p>
             </div>
 
-            <div class="relative bg-gray-100 p-6 rounded-lg shadow-lg max-w-lg mb-10 w-1/2 self-end">
-                <h3 class="text-xl font-bold">Personalized Class Design</h3>
-                <p class="mt-2">Tailoring classes to individual preferences.</p>
+            <div class="timeline-item timeline-right" data-aos="fade-up-left">
+                <h3 class="timeline-item-title">Personalized Class Design</h3>
+                <p class="timeline-item-desc">Tailoring classes to individual preferences.</p>
             </div>
 
-            <div class="relative bg-gray-100 p-6 rounded-lg shadow-lg max-w-lg mb-10 w-1/2 self-start">
-                <h3 class="text-xl font-bold">Guided Yoga Sessions</h3>
-                <p class="mt-2">Practicing with expert guidance.</p>
+            <div class="timeline-item timeline-left" data-aos="fade-up-right">
+                <h3 class="timeline-item-title">Guided Yoga Sessions</h3>
+                <p class="timeline-item-desc">Practicing with expert guidance.</p>
             </div>
 
-            <div class="relative bg-gray-100 p-6 rounded-lg shadow-lg max-w-lg mb-10 w-1/2 self-end">
-                <h3 class="text-xl font-bold">Progress Monitoring</h3>
-                <p class="mt-2">Tracking improvements and feedback.</p>
+            <div class="timeline-item timeline-right" data-aos="fade-up-left">
+                <h3 class="timeline-item-title">Progress Monitoring</h3>
+                <p class="timeline-item-desc">Tracking improvements and feedback.</p>
             </div>
 
-            <div class="relative bg-gray-100 p-6 rounded-lg shadow-lg max-w-lg w-1/2 self-start">
-                <h3 class="text-xl font-bold">Ongoing Support</h3>
-                <p class="mt-2">Ensuring continued growth and development.</p>
+            <div class="timeline-item timeline-left" data-aos="fade-up-right">
+                <h3 class="timeline-item-title">Ongoing Support</h3>
+                <p class="timeline-item-desc">Ensuring continued growth and development.</p>
             </div>
         </div>
     </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -252,7 +263,7 @@
     </footer>
 
     <!-- Cookie Consent -->
-    <div id="cookieConsent" class="cookie-consent">
+    <div id="cookieConsent" class="cookie-consent" data-aos="fade-up">
         <div class="container">
             <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of
                 cookies.</p>
@@ -340,7 +351,10 @@
             </div>
         </div>
     </div>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="js/main.js"></script>
 </body>
 
